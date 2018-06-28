@@ -6,17 +6,18 @@ import java.util.Set;
 
 @Entity
 public class Pet {
+//    This class acts as the 'orders' or 'transaction' class
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String petName;
+    private int petName;
 
-    @ManyToMany()
-    private Set<Person> owners;
+    @ManyToOne()
+    private Person owners;
 
     public Pet() {
-        owners = new HashSet<>();
+
     }
 
     public long getId() {
@@ -27,19 +28,19 @@ public class Pet {
         this.id = id;
     }
 
-    public String getPetName() {
+    public int getPetName() {
         return petName;
     }
 
-    public void setPetName(String petName) {
+    public void setPetName(int petName) {
         this.petName = petName;
     }
 
-    public Set<Person> getOwners() {
+    public Person getOwners() {
         return owners;
     }
 
-    public void setOwners(Set<Person> owners) {
+    public void setOwners(Person owners) {
         this.owners = owners;
     }
 }

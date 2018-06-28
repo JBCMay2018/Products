@@ -8,10 +8,10 @@
         <form th:action="@{/savepet}" th:object="${aPet}" method="post">
                     <div class="container">
                         <input type="hidden" th:field="*{id}">
-                        <input type="text" th:field="*{petName}">
-                        <select th:field="*{owners}" multiple>
+                        <select th:field="*{owners}">
                             <option th:each ="eachOwner:${petowners}" th:value="${eachOwner.id}" th:text="${eachOwner.myName}"></option>
                         </select>
+                        <input type="text" th:field="*{petName}">
                     </div>
 
             <button type="submit">Save Pet</button>

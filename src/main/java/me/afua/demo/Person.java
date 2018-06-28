@@ -6,13 +6,16 @@ import java.util.Set;
 
 @Entity
 public class Person {
+//    This entity act as the 'product' class
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String myName;
 
-    @ManyToMany(mappedBy = "owners")
+    private double price;
+
+    @OneToMany(mappedBy = "owners")
     private Set<Pet> pets;
 
     public Person() {
@@ -41,5 +44,14 @@ public class Person {
 
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
